@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="../src/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>OdinTodo</h1>
+        </header>
+        <div class="main-content">
+            <div class="project-container">
+                <div class="list-title-container">
+                    <h2>Project List</h2>
+                    <h1 id="project-plus" title="Add Project" class="material-icons">add_circle</h1>
+                </div>
+                <ul class="project-list">
+                    <li>project 1</li>
+                    <li>project 2</li>
+                    <li>project 3</li>
+                    <li>project 4</li>
+                    <li>project 5</li>
+                    <li>project 6</li>
+                    <li>project 7</li>
+                </ul>
+            </div>
+            <div class="todo-container">
+                <div class="list-title-container">
+                    <h2>Todo List</h2>
+                    <h1 id="todo-plus" title="Add Title" class="material-icons">add_circle</h1>
+                </div>
+                <ul class="todo-list">
+                    <li>todo 1</li>
+                    <li>todo 2</li>
+                    <li>todo 3</li>
+                    <li>todo 4</li>
+                    <li>todo 5</li>
+                    <li>todo 6</li>
+                    <li>todo 7</li>
+                    <li>todo 8</li>
+                </ul>
+            </div>
+        </div>
+        <footer>
+            <p>Just do it!</p>
+        </footer>
+    </div>
+    <div class="form-add-todo-container">
+        <form id="form-add-todo">
+            <div class=form-add-row>
+                <input type="text" name="todo-title" id="todo-title" placeholder="Title">
+                <select class="project-select" name="project" id="select">
+                    <option value="project 1">project 1</option>
+                    <option value="project 2">project 2</option>
+                    <option value="project 3">project 3</option>
+                    <option value="project 4">project 4</option>
+                </select>
+            </div>
+            <div class="form-add-row">
+                <textarea name="todo-description" id="todo-description" cols="30" rows="10" placeholder="Description"></textarea>
+                <div class="date-and-plus-group">
+                    <input type="text" name="due-date" id="due-date" placeholder="Date due">
+                    <h1 id="form-todo-but-tick" title="Add" class="material-icons">check_circle</h1>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="form-add-project-container">
+        <form id="form-add-project">
+            <div class=form-add-row>
+                <input type="text" name="project-title" id="project-title" placeholder="Project Title">
+                <h1 id="form-project-but-tick" title="Add" class="material-icons">check_circle</h1>
+            </div>
+        </form>
+    </div>
+    <script src="../src/app.js"></script>
+</body>
+</html>
