@@ -1,0 +1,178 @@
+* {
+    font-family: Roboto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background: #444;
+    padding: 30px;
+    color: #ddd;
+}
+
+.main-content {
+    display: flex;
+    height: 80vh;
+    color: #444;
+}
+
+.project-container {
+    background: #ddd;
+    flex-grow: 1;
+    padding-top: 20px;
+}
+
+.todo-container {
+    background: #eee;
+    flex-grow: 3;
+    padding-top: 20px;
+}
+
+.project-list {
+    margin: 50px 30px;
+}
+
+.todo-list {
+    margin: 50px 30px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #444;
+    padding: 30px;
+    color: #ddd;
+}
+
+.form-add-todo-container {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    transition: display 2s;
+}
+
+.form-add-project-container {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    transition: display 2s;
+}
+
+#form-add-todo,
+#form-add-project {
+    display: flex;
+    flex-direction: column;
+    margin: 10% auto;
+    width: 430px;
+    border: grey solid 1px;
+    padding: 10px;
+    background:lightgrey;
+    border-radius: 5px;
+}
+
+#todo-title,
+#project-title {
+    width: 300px;
+    height: 30px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #444;
+    padding: 3px;
+}
+
+#todo-description {
+    font-size: 1rem;
+    margin-top: 10px;
+    padding-top: 0;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    padding: 3px;
+}
+
+.form-add-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+}
+
+.list-title-container {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+
+#project-plus:hover,
+#todo-plus:hover,
+#form-todo-but-tick:hover,
+#form-project-but-tick:hover {
+    cursor: pointer;
+    color: limegreen;
+}
+
+#project-plus,
+#todo-plus,
+#form-todo-but-tick,
+#form-project-but-tick {
+    font-size: 2rem;
+}
+
+#form-todo-but-tick {
+    margin-top: 50px;
+    align-self: center;
+    font-size: 3rem;
+}
+
+#form-project-but-tick {
+    align-self: center;
+    font-size: 2rem;
+}
+
+li {
+    list-style-type: none;
+}
+
+.date-and-plus-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-select {
+    width: 100px;
+    height: 30px;
+    font-size: 1rem;
+    padding: 4px;
+    border: 1px solid #444;
+    padding: 3px;
+}
+
+
+#due-date {
+    height: 30px;
+    width: 100px;
+    font-size: 1rem;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    padding: 3px;
+}
+
+.list-title-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+}
