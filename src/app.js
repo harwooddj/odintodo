@@ -1,4 +1,4 @@
-import { Todo, Project, TodoList, ProjectList } from "./logic";    
+import { Todo, Project, TodoList, ProjectList } from "../src/logic";    
 
 const todoPlus = document.getElementById("todo-plus");
 const projectPlus = document.getElementById("project-plus");
@@ -28,11 +28,22 @@ function closeAddProjectForm(){
 }
 
 function displayProjectList(){
-    
+    let content = document.getElementById("project-list");
+    projectList.list.forEach(project => {
+        let li =document.createElement("li");
+        li.textContent = project.title;
+        content.appendChild("li")
+    })
 }
 
 function displayTodoList(){
 
+}
+
+function addProject(title){
+    let project = document.createElement("li");
+    project.textContent = title;
+    document.querySelector(".project-list").appendChild(project);
 }
 
 const projectList = new ProjectList;
@@ -55,6 +66,9 @@ document.addEventListener("click", e => {
         if(!formAddProject.contains(e.target)){
             closeAddProjectForm();
         }else if(e.target == formProjectButTick){
+            addProject(document.getElementById("project-title").value);
+            projectList.PopListFromUL(document.querySelector(".project-list"));
+            projectList.ProjectListToLocalStorage();
             closeAddProjectForm();   
         }
     }

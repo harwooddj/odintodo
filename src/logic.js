@@ -1,10 +1,10 @@
-class Project { 
+export class Project { 
     constructor(title){
         this.title = title;
     }
 }
 
-class Todo { 
+export class Todo { 
     constructor(title, description, project, due){
         this.title = title;
         this.description = description;
@@ -13,7 +13,7 @@ class Todo {
     }
 }
 
-class TodoList {
+export class TodoList {
     list = [];
     constructor(){
         this.LocalStorageToTodoList();
@@ -40,10 +40,17 @@ class TodoList {
     }
 }
 
-class ProjectList {
+export class ProjectList {
     list = [];
     constructor(){
         this.LocalStorageToProjectList();
+    }
+
+    PopListFromUL(ul){
+        console.log(ul)
+        ul.children.forEach(function(li){
+            this.list.push(li.textContent);
+        })
     }
 
     ProjectListToLocalStorage(){
@@ -65,11 +72,4 @@ class ProjectList {
             })
         }
     }
-}
-
-export {
-    Project,
-    Todo,
-    ProjectList,
-    TodoList
 }
