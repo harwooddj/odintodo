@@ -29,13 +29,6 @@ header {
     padding-top: 20px;
 }
 
-.project-list {
-    margin: 50px 30px;
-}
-
-.todo-list {
-    margin: 50px 30px;
-}
 
 footer {
     display: flex;
@@ -112,8 +105,9 @@ footer {
 
 .list-title-container {
     display: flex;
-    justify-content:space-around;
+    justify-content:space-between;
     align-items: center;
+    padding: 0 5%;
 }
 
 #project-plus:hover,
@@ -142,9 +136,6 @@ footer {
     font-size: 2rem;
 }
 
-li {
-    list-style-type: none;
-}
 
 .date-and-plus-group {
     display: flex;
@@ -171,8 +162,32 @@ li {
     padding: 3px;
 }
 
-.list-title-container {
+.project-list, .todo-list {
+    display: block;
+    margin-top: 30px;
+}
+
+
+
+.project {
     display: flex;
     justify-content: space-between;
-    padding: 0 30px;
+    padding-left: 5%;
+    transition: all 0.2s ease-in-out;
+}
+
+.del {
+    display: none;
+}
+
+.project:hover {
+    background: #444;
+    color: #eee;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.project:hover .del {
+    display: inline-block;
+    color:#eee;
 }
