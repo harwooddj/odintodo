@@ -8,7 +8,7 @@ const formAddTodoContainer = document.querySelector(".form-add-todo-container");
 const formAddProjectContainer = document.querySelector(".form-add-project-container");
 const todoListContainer = document.querySelector(".todo-list");
 const projectListContainer = document.querySelector(".project-list");
-const container = document.querySelector(".container");
+const projectSelect = document.getElementById("select");
 const formTodoButTick = document.getElementById("form-todo-but-tick");
 const formProjectButTick = document.getElementById("form-project-but-tick");
 
@@ -37,7 +37,7 @@ function displayProjectList(){
             projectDiv.textContent = project.title;
             projectDiv.id = "project_" + projectList.projects.indexOf(project);
             projectDiv.classList.add("project");
-            projectDiv.id = "del-project";
+            del.id = "del-project";
             del.classList.add("material-icons");
             del.textContent = "delete_outlined";
             del.classList.add("del")
@@ -52,12 +52,29 @@ function addProject(title){
     projectList.projects.push(project);
     SendToLocalStorage();
     displayProjectList();
+    updateProjectSelect();
 }
 
 function deleteProject(id){
+    let project = projectList.projects[id].title;
+    for(let i=0; i<todoList.todos.length; i++){
+        if(todoList.todos[i].project == project){
+            todoList.todos.splice(i,1);
+        }
+    }
     projectList.projects.splice(id, 1);
     SendToLocalStorage();
     displayProjectList();
+    displayTodoList();
+}
+
+function updateProjectSelect(){
+    projectSelect.innerHTML = "";
+    projectList.projects.forEach((project) => {
+        let opt = document.createElement("option");
+        opt.textContent = project.title;
+        projectSelect.appendChild(opt);
+    })
 }
 
 function displayTodoList(){
@@ -69,8 +86,8 @@ function displayTodoList(){
             let todoDue = document.createElement("p");
             let del = document.createElement("h1");
             todoDiv.id = "todo_" + todoList.todos.indexOf(todo);
-            todoDiv.classList.add("project");
-
+            todoDiv.classList.add("todo");
+        
             todoTitle.textContent = todo.title;
             todoDue.textContent = todo.due;
 
@@ -96,6 +113,7 @@ function addTodo(title, description, project, due){
 }
 
 function deleteTodo(id){
+    todoList.todos.splice(id, 1);
     SendToLocalStorage();
     displayTodoList();
 }
@@ -110,7 +128,7 @@ function SendToLocalStorage(){
     }
 }
 
-function RetrieveFromLocalStorage(){
+function retrieveFromLocalStorage(){
     ProjectList.projects = [];
     todoList.todos = [];
     let keys = Object.keys(localStorage);
@@ -128,7 +146,8 @@ function RetrieveFromLocalStorage(){
     }
 }
 
-RetrieveFromLocalStorage();
+retrieveFromLocalStorage();
+updateProjectSelect();
 displayProjectList();
 displayTodoList();
 
@@ -160,11 +179,17 @@ document.addEventListener("click", e => {
         showAddForm(formAddProjectContainer);
     }
     if(e.target.id == "del-project"){
-        deleteProject(e.target.parentElement.id.slice(8));
+        if(confirm("All todos related to this project will be deleted!")){
+            deleteProject(e.target.parentElement.id.slice(8));
+        }  
     }
 
     if(e.target.id == "del-todo"){
-        deleteTodo(e.target.parentElement.id.slice(6));
+        deleteTodo(e.target.parentElement.id.slice(5));
+    }
+
+    if(e.target.classList.contains("todo")){
+        console.log("todo clicked")
     }
 });
 
