@@ -12,20 +12,19 @@ header {
 }
 
 .main-content {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
     height: 80vh;
     color: #444;
 }
 
 .project-container {
     background: #ddd;
-    flex-grow: 1;
     padding-top: 20px;
 }
 
 .todo-container {
     background: #eee;
-    flex-grow: 3;
     padding-top: 20px;
 }
 
@@ -167,9 +166,16 @@ footer {
     margin-top: 30px;
 }
 
-.project, .todo {
-    display: flex;
-    justify-content: space-between;
+.project {
+    display: grid;
+    grid-template-columns: 2fr 0.5fr;
+    padding-left: 5%;
+    transition: all 0.2s ease-in-out;
+}
+
+.todo {
+    display: grid;
+    grid-template-columns: 4fr 0.5fr 0.5fr;
     padding-left: 5%;
     transition: all 0.2s ease-in-out;
 }
