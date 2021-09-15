@@ -188,8 +188,5 @@ document.addEventListener("click", e => {
         deleteTodo(e.target.parentElement.id.slice(5));
     }
 
-    if(e.target.classList.contains("todo")){
-        console.log("todo clicked")
-    }
 });
 
